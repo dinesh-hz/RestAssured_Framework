@@ -12,7 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Rest Assured" options="-Xlint:unchecked" />
+      <module name="Rest Assured" options="" />
     </option>
   </component>
 </project>

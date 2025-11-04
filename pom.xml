@@ -42,7 +42,7 @@
             <version>5.5.0</version>
         </dependency>
 
-        <!-- ✅ Utilities -->
+<!--  ✅ Utilities and it is help to use JSONObaject!>-->
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
@@ -119,40 +119,92 @@
     <build>
         <plugins>
 
-            <!-- ✅ Compiler plugin for Java 21 -->
+            <!-- ✅ Run your TestNG or Cucumber runner -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.12.1</version>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
                 <configuration>
-                    <source>21</source>
-                    <target>21</target>
-                    <compilerArgs>
-                        <arg>-Xlint:unchecked</arg>
-                    </compilerArgs>
+                    <testFailureIgnore>false</testFailureIgnore>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <!--<includes> <include>**/Runner_Class.class</include> </includes>-->
                 </configuration>
             </plugin>
 
-            <!-- ✅ Run custom Java report generator after tests -->
+
+            <!-- ✅ Run Extent report generator -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.1.0</version>
                 <executions>
                     <execution>
+                        <id>run-extent-report</id>
                         <phase>verify</phase>
                         <goals>
                             <goal>java</goal>
                         </goals>
                         <configuration>
+<!--                            <classpathScope>compile</classpathScope>-->
+                            <mainClass>Hooks.CucumberReportGenerator</mainClass>
                             <classpathScope>test</classpathScope>
-                            <mainClass>Helpers.CucumberReportGenerator</mainClass>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
 
+            <!-- ✅ Compiler plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>21</source>
+                    <target>21</target>
+                    <compilerArgs>--enable-preview</compilerArgs>
+                </configuration>
+            </plugin>
+
+            <!-- ✅ Clean plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <failOnError>false</failOnError>
+                </configuration>
+            </plugin>
+
         </plugins>
+
+        <!-- ✅ Include configuration/resource files -->
+        <resources>
+            <resource>
+                <directory>src/test/resources</directory>
+                <includes>
+                    <include>log4j2.properties</include>
+                    <include>extent.properties</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
+
+    <!-- ✅ Correct place for cucumber report generation -->
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>5.8.4</version>
+                <configuration>
+                    <projectName>rest assurd Automation Framework</projectName>
+                    <outputDirectory>target/cucumber-reports</outputDirectory>
+                    <cucumberOutput>target/cucumber-reports/cucumber.json</cucumberOutput>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
 
 </project>

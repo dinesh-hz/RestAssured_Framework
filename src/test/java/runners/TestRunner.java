@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions.SnippetType;
 // this is only run for junit test from junit pakges
 @CucumberOptions(features = "./src/test/resources/feature_files",
 
-        glue = {"StepDefinition", "Helpers"},
+        glue = {"StepDefinition","Hooks"},
 
         dryRun = false,
         monochrome = true,

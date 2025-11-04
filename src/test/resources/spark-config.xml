@@ -1,0 +1,30 @@
+<configuration>
+    <!-- Report appearance -->
+    <theme>standard</theme> <!-- Options: standard, dark -->
+    <encoding>utf-8</encoding>
+    <protocol>https</protocol>
+    <documentTitle>Automation Rest assured</documentTitle>
+    <reportName>get user by id</reportName>
+    <timelineEnabled>true</timelineEnabled>
+
+    <!-- Charts and Views -->
+    <timelineEnabled>true</timelineEnabled>
+    <offlineMode>true</offlineMode> <!-- Forces offline resources (no CDN) -->
+    <chartVisibilityOnOpen>true</chartVisibilityOnOpen>
+    <showStatusOnDashboard>true</showStatusOnDashboard>
+    <statusVisibility>
+        <pass>true</pass>
+        <fail>true</fail>
+        <skip>true</skip>
+        <warning>true</warning>
+        <info>true</info>
+    </statusVisibility>
+
+
+
+
+    <!-- Advanced report settings -->
+    <timestampFormat>dd MMM yyyy HH:mm:ss</timestampFormat>
+    <timeFormat>HH:mm:ss</timeFormat>
+    <locale>en</locale>
+</configuration>

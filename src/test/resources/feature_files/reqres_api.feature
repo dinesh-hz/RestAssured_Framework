@@ -1,8 +1,7 @@
 Feature: Reqres API Testing
 
-  #Background: user is on page
-  #Given User sets the API endpoint
-  @try
+
+#  @try
   Scenario: Get user by ID
     When User sends a GET request to "/api/users/2"
     Then The Status code should be 200

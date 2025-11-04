@@ -1,4 +1,4 @@
-package Helpers;
+package Hooks;
 
 import net.masterthought.cucumber.Configuration;
 import net.masterthought.cucumber.ReportBuilder;
@@ -32,7 +32,7 @@ public class CucumberReportGenerator {
         configuration.addClassifications("Platform", System.getProperty("os.name").toUpperCase());
         configuration.addClassifications("Browser", "Chrome");
         configuration.addClassifications("Environment", "QA");
-        configuration.addClassifications("Tester", "John Doe");
+        configuration.addClassifications("Tester", "Dinesh");
 
         //  Generate the report
         ReportBuilder reportBuilder = new ReportBuilder(jsonFiles, configuration);
