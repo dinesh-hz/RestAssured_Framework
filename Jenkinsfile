@@ -59,15 +59,16 @@ pipeline {
 
 	//  post block must come here — outside "stages"
 	post {
-		always {
-			echo "Cleaning workspace..."
-			cleanWs()
-		}
 		success {
 			echo "✅ Build and tests successful!"
+			cleanWs() // clean only on success to keep failed run data for debugging
 		}
 		failure {
-			echo "❌ Build failed. Check the logs above."
+			echo "❌ Build failed. Keeping workspace for debugging."
+		}
+		always {
+			echo "Post build actions complete."
 		}
 	}
+
 }
