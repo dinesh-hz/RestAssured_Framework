@@ -7,8 +7,7 @@ pipeline {
 	stages {
 		stage('Checkout') {
 			steps {
-				git 'https://github.com/dinesh-hz/RestAssured_Framework.git'
-			}
+				git branch: 'getuser', url: 'https://github.com/dinesh-hz/RestAssured_Framework.git'			}
 		}
 		stage('Build') {
 			steps {
