@@ -10,12 +10,36 @@ pipeline {
 				git 'https://github.com/dinesh-hz/RestAssured_Framework.git'
 			}
 		}
-		stage('Build and Test') {
+		stage('Build') {
 			steps {
-				bat 'mvn clean verify'
+				sh 'mvn clean compile'
 			}
 		}
 
+		stage('Test') {
+			steps {
+				sh 'mvn test'
+			}
+		}
+
+		stage('Report') {
+			steps {
+				sh 'mvn verify'
+			}
+
+		}
+		post {
+			always {
+				echo "Cleaning workspace..."
+				cleanWs()
+			}
+			success {
+				echo "✅ Build and tests successful!"
+			}
+			failure {
+				echo "❌ Build failed. Check the logs above."
+			}
+		}
 
 		stage('Publish Cucumber JVM Report') {
 			steps {
