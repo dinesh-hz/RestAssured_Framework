@@ -14,19 +14,19 @@ pipeline {
 
 		stage('Build') {
 			steps {
-				sh 'mvn clean compile'
+				bat 'mvn clean compile'
 			}
 		}
 
 		stage('Test') {
 			steps {
-				sh 'mvn test'
+				bat 'mvn test'
 			}
 		}
 
 		stage('Report') {
 			steps {
-				sh 'mvn verify'
+				bat 'mvn verify'
 			}
 		}
 
