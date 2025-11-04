@@ -7,8 +7,10 @@ pipeline {
 	stages {
 		stage('Checkout') {
 			steps {
-				git branch: 'getuser', url: 'https://github.com/dinesh-hz/RestAssured_Framework.git'			}
+				checkout SCM
+			}
 		}
+
 		stage('Build') {
 			steps {
 				sh 'mvn clean compile'
@@ -26,18 +28,6 @@ pipeline {
 				sh 'mvn verify'
 			}
 
-		}
-		post {
-			always {
-				echo "Cleaning workspace..."
-				cleanWs()
-			}
-			success {
-				echo "✅ Build and tests successful!"
-			}
-			failure {
-				echo "❌ Build failed. Check the logs above."
-			}
 		}
 
 		stage('Publish Cucumber JVM Report') {
@@ -80,6 +70,17 @@ pipeline {
 			 }
 		 }*/
 
-
+		post {
+			always {
+				echo "Cleaning workspace..."
+				cleanWs()
+			}
+			success {
+				echo "✅ Build and tests successful!"
+			}
+			failure {
+				echo "❌ Build failed. Check the logs above."
+			}
+		}
 	}
 }
