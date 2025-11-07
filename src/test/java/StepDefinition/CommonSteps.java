@@ -1,25 +1,23 @@
 package StepDefinition;
 
 import io.cucumber.java.en.Then;
-import org.testng.Assert;
 import utilities.Bass_utiles;
+import utilities.TestContext;
 
 public class CommonSteps {
 
-   // private Response response;
+    private final TestContext context;
+    private final Bass_utiles bassUtiles;
 
-    Bass_utiles bassUtiles = Bass_utiles.getInstance();
+    public CommonSteps(TestContext context) {
+        this.context = context;
+        this.bassUtiles = new Bass_utiles(context);
+    }
 
+    @Then("The Status code should be {int} and Type {string}")
+    public void theStatusCodeShouldBeAndType(int expected, String type) {
 
-    @Then("The Status code should be {int}")
-    public void theStatusCodeShouldBe(Integer expectedStatusCode ) {
-
-        int currentcode = bassUtiles.getStatusCode();
-       // System.out.println(currentcode);
-        if (currentcode == expectedStatusCode ) {
-            Assert.assertEquals(currentcode, expectedStatusCode , "status code isnt match");
-        }else {
-            System.out.println("as expected statuscode "+expectedStatusCode +"but got "+currentcode);
-        }
+        Bass_utiles.requestType requestType = Bass_utiles.requestType.valueOf(type.toLowerCase());
+        bassUtiles.getStatusCode(requestType, expected);
     }
 }

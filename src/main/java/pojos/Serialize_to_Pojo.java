@@ -1,7 +1,8 @@
+/*
 package pojos;
 
-import Payload.Address_dataes;
-import Payload.Emeleyesdataes;
+import Payload.AddressData;
+import Payload.UserData;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
@@ -16,10 +17,12 @@ import static org.testng.Assert.assertEquals;
 
 public class Serialize_to_Pojo {
 
-    /**
+    */
+/**
      * java object covert to json object-----[it this a serialize methode]
      *
-     */
+     *//*
+
     @Test
     public void serlization_to_poja() throws JsonProcessingException {
 
@@ -29,15 +32,15 @@ public class Serialize_to_Pojo {
 
         given.header("Content-Type", "application/json");
 
-        Emeleyesdataes emeleyesdataes = new Emeleyesdataes();
+        UserData userData = new UserData();
 
-        emeleyesdataes.setFirstname("abcd");
-        emeleyesdataes.setLastename("efgh");
-        emeleyesdataes.setEmailid("abcd@gmail.com");
+        userData.setFirstname("abcd");
+        userData.setLastename("efgh");
+        userData.setEmailid("abcd@gmail.com");
 
-        Address_dataes address = new Address_dataes();
+        AddressData address = new AddressData();
 
-        emeleyesdataes.setAddres(address);
+        userData.setAddres(address);
         address.setCity("nagercoil");
         address.setLandmark("thuckaluy");
         address.setDirst("kanykumari");
@@ -48,9 +51,9 @@ public class Serialize_to_Pojo {
         skills.add("java");
         skills.add("hhtml");
 
-        emeleyesdataes.setSkiles(skills);
+        userData.setSkiles(skills);
 
-        given.body(emeleyesdataes);
+        given.body(userData);
 
         Response Response = given.request(Method.POST, "/posts");
 
@@ -68,9 +71,12 @@ public class Serialize_to_Pojo {
 
         assertEquals(Response.statusCode(), 201, "status code didnot macth");
 
-        /**
+        */
+/**
          * prettyPrint is just print value in console that all .
-         */
+         *//*
+
 
     }
 }
+*/

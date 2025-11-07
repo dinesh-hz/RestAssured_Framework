@@ -42,16 +42,16 @@
             <version>5.5.0</version>
         </dependency>
 
-<!--  ✅ Utilities and it is help to use JSONObaject!>-->
+        <!--  ✅ Utilities and it is help to use JSONObaject!>-->
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20240303</version>
         </dependency>
 
-<!--
-        Serialize POJO → JSON and Deserialize JSON → POJO (response)
--->
+        <!--
+                Serialize POJO → JSON and Deserialize JSON → POJO (response)
+        -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -59,14 +59,12 @@
         </dependency>
 
 
-
-
         <!-- ✅ TestNG -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.9.0</version>
-           <!-- <scope>test</scope>-->
+            <!-- <scope>test</scope>-->
         </dependency>
 
         <!-- ✅ Reporting: Extent + Cucumber HTML -->
@@ -108,11 +106,36 @@
             <version>2.22.1</version>
         </dependency>
 
+        <!-- Logging (SLF4J + simple binding) -->
         <dependency>
             <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-nop</artifactId>
-            <version>2.0.13</version>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.16</version>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>2.0.16</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.36</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.26.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-picocontainer</artifactId>
+            <version>7.14.0</version>
+        </dependency>
+
+
 
     </dependencies>
 
@@ -147,7 +170,7 @@
                             <goal>java</goal>
                         </goals>
                         <configuration>
-<!--                            <classpathScope>compile</classpathScope>-->
+                            <!--                            <classpathScope>compile</classpathScope>-->
                             <mainClass>Hooks.CucumberReportGenerator</mainClass>
                             <classpathScope>test</classpathScope>
                         </configuration>

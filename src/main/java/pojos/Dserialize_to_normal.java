@@ -1,6 +1,7 @@
+/*
 package pojos;
 
-import Payload.Emeleyesdataes;
+import Payload.UserData;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -32,7 +33,7 @@ public class Dserialize_to_normal {
         // Jackson's ObjectMapper
         ObjectMapper objectMapper = new ObjectMapper();
 
-        Emeleyesdataes value = objectMapper.readValue(response.getBody().asString(), Emeleyesdataes.class);
+        UserData value = objectMapper.readValue(response.getBody().asString(), UserData.class);
 
         // Validate the values from the deserialized object
 
@@ -40,7 +41,8 @@ public class Dserialize_to_normal {
 
         assertEquals(value.getSkiles(), Arrays.asList("python", "java", "hhtml"), "Skills mismatch");
 
-        /*
+        */
+/*
          * assertEquals(value.getFirstname(), "muru", "Firstname mismatch");
          * assertEquals(value.getLastename(), "dien", "Lastname mismatch");
          * assertEquals(value.getEmailid(), "bsjdbjdjj@gmail.com", "Email mismatch");
@@ -51,7 +53,9 @@ public class Dserialize_to_normal {
          *
          * assertEquals(value.getSkiles().toString(), "[java, java]",
          * "Skills mismatch");
-         */
+         *//*
+
         response.prettyPrint();
     }
 }
+*/

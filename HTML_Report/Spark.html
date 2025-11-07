@@ -32,10 +32,10 @@
 </ul>
 <ul class="nav-right">
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">my host</span></a>
+<a href="#"><span class="badge badge-primary">get user by id</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Nov 4, 2025 12:08:00 PM</span></a>
+<a href="#"><span class="badge badge-primary">Nov 7, 2025 06:06:36 PM</span></a>
 </li>
 </ul>
 </div>
@@ -66,13 +66,13 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Nov 4, 2025 12:08:00 PM</h3>
+<h3>Nov 7, 2025 06:06:36 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Nov 4, 2025 12:08:10 PM</h3>
+<h3>Nov 7, 2025 06:06:48 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -143,7 +143,7 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>3</b> steps passed</small></div>
+<div><small data-tooltip='100%'><b>6</b> steps passed</small></div>
 <div>
 <small data-tooltip='0%'><b>0</b> steps failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
@@ -162,7 +162,7 @@
 </div></div>
 <script>
 var timeline = {
-"my Host to check all request":6.738
+"my Host to check all request":9.474
 };
 </script>
 <div class="row">
@@ -202,10 +202,6 @@ var timeline = {
 <td>M.DINESH MURUGAN</td>
 </tr>
 <tr>
-<td>Engineer</td>
-<td>M</td>
-</tr>
-<tr>
 <td>Browser</td>
 <td>chrome</td>
 </tr>
@@ -233,7 +229,7 @@ warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 3,
+passGrandChild: 6,
 failGrandChild: 0,
 warningGrandChild: 0,
 skipGrandChild: 0,
@@ -271,7 +267,7 @@ eventsCount: 5,
           <div class="test-detail">
             <p class="name">my Host to check all request</p>
             <p class="text-sm">
-              <span>12:08:03 PM</span> / <span>00:00:06:738</span>
+              <span>6:06:39 PM</span> / <span>00:00:09:474</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -280,9 +276,9 @@ eventsCount: 5,
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">my Host to check all request</h5>
-<span class='badge badge-success'>11.04.2025 12:08:03 PM</span>
-<span class='badge badge-danger'>11.04.2025 12:08:10 PM</span>
-<span class='badge badge-default'>00:00:06:738</span>
+<span class='badge badge-success'>11.07.2025 6:06:39 PM</span>
+<span class='badge badge-danger'>11.07.2025 6:06:48 PM</span>
+<span class='badge badge-default'>00:00:09:474</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -295,23 +291,40 @@ eventsCount: 5,
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>user get all empolyess</div>
+        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Verify updating after existing user's information</div>
       </div>
     </div>
         <div class="collapse">
           <div class="card-body">
-              <div class="step pass-bg" title="StepDefinition.myhost.userSendGEtRequestTo(java.lang.String)">
-                <span>Given user send GEt request to "endpointalldataes"</span>
+              <div class="step pass-bg" title="StepDefinition.myhost.iSendTheGetRequestWith(java.lang.String,java.lang.String)">
+                <span>Given I send the get Request "Endurl" with "userid"</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="StepDefinition.CommonSteps.theStatusCodeShouldBe(java.lang.Integer)">
-                <span>Then The Status code should be 200</span>
+              <div class="step pass-bg" title="StepDefinition.myhost.theResoponsStroeWithUserid()">
+                <span>Then the Resopons stroe with userid</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="StepDefinition.myhost.theUserNameShouldBe(java.lang.String)">
-                <span>And The User name should be "Steve"</span>
+              <div class="step pass-bg" title="StepDefinition.CommonSteps.theStatusCodeShouldBeAndType(int,java.lang.String)">
+                <span>Then The Status code should be 200 and Type "get"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="StepDefinition.myhost.iSendThePatchRequestWithUserid(java.lang.String,io.cucumber.datatable.DataTable)">
+                <span>And I send the patch Request "Endurl" with userid</span>
+      <div><table class='markup-table table '><tr><td>firstname</td><td>ds</td></tr><tr><td>age</td><td>28</td></tr></table>
+      </div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="StepDefinition.CommonSteps.theStatusCodeShouldBeAndType(int,java.lang.String)">
+                <span>Then The Status code should be 200 and Type "patch"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="StepDefinition.myhost.verifyTheExistingUserAndUpdatauserbody()">
+                <span>And verify the existingUser and updatauserbody</span>
       <div>
       </div>
               </div>
@@ -362,11 +375,11 @@ eventsCount: 5,
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>12:08:03 PM</td>
+<td>18:06:39 PM</td>
 <td>
-<a href="#" class="linked" test-id='1' id='2'>user get all empolyess</a>
+<a href="#" class="linked" test-id='1' id='2'>Verify updating after existing user's information</a>
 <div class="">
-<span class="badge badge-default">my Host to check all request.user get all empolyess</span>
+<span class="badge badge-default">my Host to check all request.Verify updating after existing user's information</span>
 </div>
 </td>
 </tr>

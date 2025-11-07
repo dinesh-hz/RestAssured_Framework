@@ -1,0 +1,61 @@
+{
+  "employees": [
+    {
+      "id": "9dc8",
+      "firstname": "Dinesh",
+      "lastename": "Murugan",
+      "addres": {
+        "city": "Nagercoil",
+        "landmark": "Bus Stop",
+        "district": "Kanyakumari"
+      },
+      "skils": [
+        {
+          "level": "Intermediate",
+          "experienceYears": 2,
+          "name": "Manual Testing"
+        }
+      ],
+      "age": 28,
+      "emailid": "dineshmeij@gmail.com"
+    },
+    {
+      "id": "17a2",
+      "firstname": "ds",
+      "lastename": "Raj",
+      "age": 28,
+      "emailid": "dineshmeij@gmail.com",
+      "addres": {
+        "city": "Nagercoil",
+        "landmark": "Bus Stop",
+        "district": "Kanyakumari"
+      },
+      "skils": [
+        {
+          "level": "Intermediate",
+          "experienceYears": 2,
+          "name": "Manual Testing"
+        }
+      ]
+    },
+    {
+      "id": "3574",
+      "firstname": "Dinesh",
+      "lastename": "Murugan",
+      "age": 28,
+      "emailid": "dineshmeij@gmail.com",
+      "addres": {
+        "city": "Nagercoil",
+        "landmark": "Bus Stop",
+        "district": "Kanyakumari"
+      },
+      "skils": [
+        {
+          "level": "Intermediate",
+          "experienceYears": 2,
+          "name": "Manual Testing"
+        }
+      ]
+    }
+  ]
+}
