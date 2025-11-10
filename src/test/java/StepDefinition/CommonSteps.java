@@ -1,5 +1,7 @@
 package StepDefinition;
 
+import io.cucumber.java.PendingException;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import utilities.Bass_utiles;
 import utilities.TestContext;
@@ -18,6 +20,10 @@ public class CommonSteps {
     public void theStatusCodeShouldBeAndType(int expected, String type) {
 
         Bass_utiles.requestType requestType = Bass_utiles.requestType.valueOf(type.toLowerCase());
+
         bassUtiles.getStatusCode(requestType, expected);
     }
+
+
+
 }

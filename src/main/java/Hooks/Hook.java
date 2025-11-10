@@ -7,11 +7,13 @@ import utilities.TestContext;
 
 public class Hook {
 
-    private final  TestContext context;
+    private final TestContext context;
     private Bass_utiles bassUtiles;
 
     public Hook(TestContext context) {
         this.context = context;
+        bassUtiles = new Bass_utiles(context);
+
     }
 
     @Before
@@ -20,7 +22,6 @@ public class Hook {
 
         System.out.println("🚀 Test setup started...");
         Fileread_Manager.getInstance();
-        bassUtiles = new Bass_utiles(context);
         bassUtiles.setBaseUrl();
         System.out.println("✅ Setup complete.");
     }

@@ -14,6 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+
     <dependencies>
 
         <!-- ✅ Cucumber -->
@@ -117,12 +118,14 @@
             <artifactId>slf4j-simple</artifactId>
             <version>2.0.16</version>
         </dependency>
+        <!--        to make build getter and setter -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.36</version>
         </dependency>
 
+        <!--        to check api the assertion of acutaluser vs excutaluser-->
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
@@ -134,8 +137,7 @@
             <artifactId>cucumber-picocontainer</artifactId>
             <version>7.14.0</version>
         </dependency>
-
-
+       
 
     </dependencies>
 
@@ -229,5 +231,6 @@
             </plugin>
         </plugins>
     </reporting>
+
 
 </project>

@@ -1,7 +1,13 @@
 package utilities;
 
 import io.restassured.response.Response;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class TestContext {
 
     private Response getResponse;
@@ -9,24 +15,8 @@ public class TestContext {
     private Response patchResponse;
     private Response putResponse;
     private Response deleteResponse;
-
-    public TestContext() {
-        System.out.println("🧩 TestContext initialized successfully.");
-    }
+    private String currentUserId; //  get and can use delete user id
+    private String updataUserId; // patch and put
 
 
-    public Response getGetResponse() { return getResponse; }
-    public void setGetResponse(Response getResponse) { this.getResponse = getResponse; }
-
-    public Response getPostResponse() { return postResponse; }
-    public void setPostResponse(Response postResponse) { this.postResponse = postResponse; }
-
-    public Response getPatchResponse() { return patchResponse; }
-    public void setPatchResponse(Response patchResponse) { this.patchResponse = patchResponse; }
-
-    public Response getPutResponse() { return putResponse; }
-    public void setPutResponse(Response putResponse) { this.putResponse = putResponse; }
-
-    public Response getDeleteResponse() { return deleteResponse; }
-    public void setDeleteResponse(Response deleteResponse) { this.deleteResponse = deleteResponse; }
 }

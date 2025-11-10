@@ -9,6 +9,13 @@ public class Fileread_Manager {
     private static Fileread_Manager instance;
     private static Properties properties;
 
+    public static Fileread_Manager getInstance() {
+        if (instance == null) {
+            instance = new Fileread_Manager();
+        }
+        return instance;
+    }
+
     private Fileread_Manager() {
         try {
             FileInputStream fileInputStream = new FileInputStream("src/test/resources/config.properties");
@@ -19,12 +26,7 @@ public class Fileread_Manager {
         }
     }
 
-    public static Fileread_Manager getInstance() {
-        if (instance == null) {
-            instance = new Fileread_Manager();
-        }
-        return instance;
-    }
+
 
     public String getProperty(String getkey) {
         String value = properties.getProperty(getkey);

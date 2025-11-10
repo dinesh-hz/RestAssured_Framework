@@ -13,32 +13,32 @@ public class DynamicVerifiertojson {
     public static void verifyUserById(Response response, String userid) {
         try {
             ObjectMapper mapper = new ObjectMapper();
-            File file = new File("src/test/resources/testdata/db.json");  // use passed path
+            File file = new File("src/test/resources/testdata/db.json");
 
             JsonNode jsonNode = mapper.readTree(file);
 
             // find user by id
-            JsonNode usersjsonbody = null;
+            JsonNode userbody = null;
             for (JsonNode node : jsonNode.get("employees")) {  // <-- if array is inside "employees"
                 if (node.has("id") && node.get("id").asText().equals(userid)) {
-                    usersjsonbody = node;
+                    userbody = node;
                     break;
                 }
             }
 
-            if (usersjsonbody == null) {
+            if (userbody == null) {
                 throw new RuntimeException("User with id " + userid + " not found in JSON");
             }
 
-            Userpayload expectedUser = mapper.treeToValue(usersjsonbody, Userpayload.class);
+            Userpayload expectedUser = mapper.treeToValue(userbody, Userpayload.class);
             Userpayload actualUser = mapper.readValue(response.asString(), Userpayload.class);
 
             Assertions.assertThat(actualUser)
                     .usingRecursiveComparison()
-                 // .ignoringFields("firstname")
+                  //  .ignoringFields("firstname", "Age")
                     .isEqualTo(expectedUser);
         } catch (Exception e) {
             throw new RuntimeException("Failed to dynamically verify response", e);
         }
-        }
+    }
 }

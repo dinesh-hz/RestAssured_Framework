@@ -1,6 +1,7 @@
 package Payload;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AllArgsConstructor;
@@ -10,44 +11,45 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.util.List;
 
-
+// it is just mainte the order of json body
 @JsonPropertyOrder({
         "id",
-        "firstname",
-        "lastename",
-        "age",
-        "emailid",
-        "addres",
-        "skils"
+        "Firstname",
+        "Lastename",
+        "Age",
+        "Emailid",
+        "Addres",
+        "Skils"
 })
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(toBuilder = true)
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties(ignoreUnknown = true) //any field did not here just igroe the filed frome server
+@JsonInclude(JsonInclude.Include.NON_NULL) // this line just skip null value to json server
 public class Userpayload implements Serializable {
 
-    @JsonProperty("id")
-    private String id;
+    // when try post request dont need this id
+    @JsonProperty("id") // this is speeling macth to the json server body
+    private String Id;  // here we can use the name or with speeling miskess
 
-    @JsonProperty("firstname")
-    private String firstname;
+    @JsonProperty("Firstname")
+    private String firstName;
 
-    @JsonProperty("lastename")
-    private String lastename;
+    @JsonProperty("Lastename")
+    private String lastName;
 
-    @JsonProperty("age")
-    private int Age;
+    @JsonProperty("Age")
+    private Integer age;
 
-    @JsonProperty("emailid")
-    private String Emailid;
+    @JsonProperty("Emailid")
+    private String emailid;
 
-    @JsonProperty("addres")
+    @JsonProperty("Addres")
     private Addrespayload addres;
 
-    @JsonProperty("skils")
+    @JsonProperty("Skils")
     private List<Skillpayload> skils; // advanced method
 
-    //  private  List<String> skiles; // output :  "skills": ["Java", "Selenium", "API Testing"]
-//        List<String> skills = Arrays.asList("Java", "Selenium", "API Testing");
+
 }

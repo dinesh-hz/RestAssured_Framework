@@ -6,6 +6,7 @@ import org.assertj.core.api.Assertions;
 
 public class DynamicVerifier {
 
+    //manually verify expected response body and acutalexpected body
     public static void verifyResponse(Response response, Object expectedObject) {
         try {
             // Convert response JSON to POJO of the same type as expected

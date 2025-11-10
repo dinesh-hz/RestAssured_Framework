@@ -17,11 +17,6 @@ import static org.testng.Assert.assertEquals;
 
 public class Serialize_to_Pojo {
 
-    */
-/**
-     * java object covert to json object-----[it this a serialize methode]
-     *
-     *//*
 
     @Test
     public void serlization_to_poja() throws JsonProcessingException {
@@ -71,10 +66,9 @@ public class Serialize_to_Pojo {
 
         assertEquals(Response.statusCode(), 201, "status code didnot macth");
 
-        */
-/**
+*
          * prettyPrint is just print value in console that all .
-         *//*
+
 
 
     }

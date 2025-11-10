@@ -41,8 +41,6 @@ public class Dserialize_to_normal {
 
         assertEquals(value.getSkiles(), Arrays.asList("python", "java", "hhtml"), "Skills mismatch");
 
-        */
-/*
          * assertEquals(value.getFirstname(), "muru", "Firstname mismatch");
          * assertEquals(value.getLastename(), "dien", "Lastname mismatch");
          * assertEquals(value.getEmailid(), "bsjdbjdjj@gmail.com", "Email mismatch");
@@ -53,7 +51,7 @@ public class Dserialize_to_normal {
          *
          * assertEquals(value.getSkiles().toString(), "[java, java]",
          * "Skills mismatch");
-         *//*
+
 
         response.prettyPrint();
     }

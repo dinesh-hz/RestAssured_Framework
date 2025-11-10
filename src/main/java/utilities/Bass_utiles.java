@@ -8,13 +8,15 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
 
+import java.util.List;
+
 import static io.restassured.RestAssured.given;
 
 public class Bass_utiles {
 
+    public static RequestSpecification requestSpec;
     private final Fileread_Manager reader = Fileread_Manager.getInstance();
-    public static  RequestSpecification requestSpec;
-    TestContext testContext ;
+    TestContext testContext;
     private String token;
 
     public Bass_utiles(TestContext context) {
@@ -94,10 +96,14 @@ public class Bass_utiles {
         return response;
     }
 
-    // ======= Utility methods =======
-    public String getValueFromJson(String response, String key) {
-        return JsonPath.from(response).getString(key);
+    public String getValueFromJson(Response response, String key) {
+        return JsonPath.from(response.asString()).getString(key);
     }
+
+    public List<Object> getallValuesFromJson(Response response, String key) {
+        return JsonPath.from(response.asString()).getList(key);
+    }
+
 
     public String getPrettyResponse(Response response) {
         return response.asPrettyString();
@@ -107,11 +113,21 @@ public class Bass_utiles {
         Response response = null;
 
         switch (Type) {
-            case get -> response = testContext.getGetResponse();
-            case post -> response = testContext.getPostResponse();
-            case patch -> response = testContext.getPatchResponse();
-            case put -> response = testContext.getPutResponse();
-            case delete -> response = testContext.getDeleteResponse();
+            case get:
+                response = testContext.getGetResponse();
+                break;
+            case post:
+                response = testContext.getPostResponse();
+                break;
+            case patch:
+                response = testContext.getPatchResponse();
+                break;
+            case put:
+                response = testContext.getPutResponse();
+                break;
+            case delete:
+                response = testContext.getDeleteResponse();
+                break;
         }
 
         if (response == null) {
