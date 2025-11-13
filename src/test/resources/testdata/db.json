@@ -277,6 +277,25 @@
         "District": "Bus Stop",
         "LandMark": "Kanyakumari"
       }
+    },
+    {
+      "id": "1b39",
+      "Firstname": "schamvalite",
+      "Lastname": "Murugan",
+      "Age": 28,
+      "Emailid": "dineshmeij@gmail.com",
+      "Address": {
+        "City": "Nagercoil",
+        "District": "Kanyakumari",
+        "LandMark": "Bus Stop"
+      },
+      "Skills": [
+        {
+          "Name": "Manual Testing",
+          "Level": "Intermediate",
+          "Years ofExperience": 4
+        }
+      ]
     }
   ]
 }

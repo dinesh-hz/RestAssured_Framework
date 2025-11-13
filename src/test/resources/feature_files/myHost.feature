@@ -1,4 +1,3 @@
-
 Feature: my Host to check all request
 
 
@@ -7,15 +6,16 @@ Feature: my Host to check all request
     Then The Status code should be 200 and Type "get"
     And I verify allid should be here "id"
 
-
+  @try
   Scenario: get a user body with get Request
     Given I send the get Request "Endurl" with "getuserid"
     Then The Status code should be 200 and Type "get"
     Then I check the body value with "kumar"
 
+
   Scenario: Add a new user and verified creation with post Request
     Given I send  POST request to Add "Endurl" with the following data
-      | firstname       | dinesh               |
+      | firstname       | schamvalite          |
       | lastname        | Murugan              |
       | emailid         | dineshmeij@gmail.com |
       | age             | 28                   |
@@ -41,17 +41,16 @@ Feature: my Host to check all request
     Then The Status code should be 200 and Type "patch"
     And verify the existingUser and updatauserbody
 
-  @try
   Scenario: Verify existing user body information fullyreplace with put Request
     Given I send the get Request "Endurl" with "updatauserid"
     Then The Status code should be 200 and Type "get"
     When the Resopons stroe with userid
     And I send the put Request "Endurl" with new body
-      | firstname       | dinesh               |
-      | lastname        | Murugan              |
-      | emailid         | dineshmeij@gmail.com |
-      | age             | 28                   |
-      | city            | Nagercoil            |
-      | landmark        | Bus Stop             |
-      | district        | Kanyakumari          |
+      | firstname | dinesh               |
+      | lastname  | Murugan              |
+      | emailid   | dineshmeij@gmail.com |
+      | age       | 28                   |
+      | city      | Nagercoil            |
+      | landmark  | Bus Stop             |
+      | district  | Kanyakumari          |
     Then The Status code should be 200 and Type "put"

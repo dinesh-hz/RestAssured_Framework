@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -15,11 +16,11 @@ import java.util.List;
 @JsonPropertyOrder({
         "id",
         "Firstname",
-        "Lastename",
+        "Lastname",
         "Age",
         "Emailid",
-        "Addres",
-        "Skils"
+        "Address",
+        "Skills"
 })
 @Data
 @NoArgsConstructor
@@ -31,12 +32,12 @@ public class Userpayload implements Serializable {
 
     // when try post request dont need this id
     @JsonProperty("id") // this is speeling macth to the json server body
-    private String Id;  // here we can use the name or with speeling miskess
+    private String id;  // here we can use the name or with speeling miskess
 
     @JsonProperty("Firstname")
     private String firstName;
 
-    @JsonProperty("Lastename")
+    @JsonProperty("Lastname")
     private String lastName;
 
     @JsonProperty("Age")
@@ -45,10 +46,10 @@ public class Userpayload implements Serializable {
     @JsonProperty("Emailid")
     private String emailid;
 
-    @JsonProperty("Addres")
+    @JsonProperty("Address")
     private Addrespayload addres;
 
-    @JsonProperty("Skils")
+    @JsonProperty("Skills")
     private List<Skillpayload> skils; // advanced method
 
 

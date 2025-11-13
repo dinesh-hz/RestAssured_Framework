@@ -11,6 +11,7 @@ import org.testng.Assert;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 public class Bass_utiles {
 
@@ -144,6 +145,14 @@ public class Bass_utiles {
 
         Assert.assertEquals(actualCode, expectedCode, "Status code mismatch for " + Type);
     }
+
+    public void validateSchema(Response response, String schemaFileName) {
+        response.then()
+                .assertThat()
+                .body(matchesJsonSchemaInClasspath("schemas/" + schemaFileName));
+        System.out.println("✅ JSON Schema validation passed for: " + schemaFileName);
+    }
+
 
     public enum requestType {
         get,

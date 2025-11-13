@@ -1,7 +1,5 @@
 package StepDefinition;
 
-import io.cucumber.java.PendingException;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import utilities.Bass_utiles;
 import utilities.TestContext;

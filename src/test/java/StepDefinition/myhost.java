@@ -55,6 +55,8 @@ public class myhost {
 
         System.out.println("✅ current body :" + request.asPrettyString());
 
+        bassUtiles.validateSchema(request, "userSchema.json");
+
     }
 
     @Then("I check the body value with {string}")
@@ -165,6 +167,7 @@ public class myhost {
         //  Deserialization: JSON ➝ Java
         Userpayload oldRespons = context.getGetResponse().as(Userpayload.class);
 
+
         Userpayload replacebody = oldRespons.toBuilder()
                 .firstName(table.get("firstname"))
                 .lastName(table.get("lastname"))
@@ -174,7 +177,7 @@ public class myhost {
                         .district(table.get("landmark"))
                         .landmark(table.get("district"))
                         .build())
-                .skils(null)
+                .skils(null) // or use empty .skils(Collections.emptyList())
                 .build();
 
 

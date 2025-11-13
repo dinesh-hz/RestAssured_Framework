@@ -8,13 +8,14 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 
 @JsonPropertyOrder({
 
         "Name",
         "Level",
-        "ExperienceofYears"
+        "Years ofExperience"
 })
 
 @Data
@@ -31,7 +32,7 @@ public class Skillpayload implements Serializable {
     @JsonProperty("Level")
     private String level; //  Beginner, Intermediate, Expert
 
-    @JsonProperty("ExperienceofYears")
+    @JsonProperty("Years ofExperience")
     private int experienceYears;
 
 

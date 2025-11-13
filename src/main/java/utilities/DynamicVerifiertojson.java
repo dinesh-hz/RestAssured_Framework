@@ -13,7 +13,7 @@ public class DynamicVerifiertojson {
     public static void verifyUserById(Response response, String userid) {
         try {
             ObjectMapper mapper = new ObjectMapper();
-            File file = new File("src/test/resources/testdata/db.json");
+            File file = new File("src/test/resources/Json_Data_server/db.json");
 
             JsonNode jsonNode = mapper.readTree(file);
 
@@ -35,7 +35,7 @@ public class DynamicVerifiertojson {
 
             Assertions.assertThat(actualUser)
                     .usingRecursiveComparison()
-                  //  .ignoringFields("firstname", "Age")
+                    //  .ignoringFields("firstname", "Age")
                     .isEqualTo(expectedUser);
         } catch (Exception e) {
             throw new RuntimeException("Failed to dynamically verify response", e);
