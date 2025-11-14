@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">get user by id</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Nov 13, 2025 10:58:13 AM</span></a>
+<a href="#"><span class="badge badge-primary">Nov 14, 2025 12:46:42 PM</span></a>
 </li>
 </ul>
 </div>
@@ -71,13 +71,13 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Nov 13, 2025 10:58:13 AM</h3>
+<h3>Nov 14, 2025 12:46:42 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Nov 13, 2025 10:58:26 AM</h3>
+<h3>Nov 14, 2025 12:46:50 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -148,10 +148,10 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='66%'><b>2</b> steps passed</small></div>
+<div><small data-tooltip='0%'><b>0</b> steps passed</small></div>
 <div>
 <small data-tooltip='33%'><b>1</b> steps failed,
-<b>0</b> skipped, <b data-tooltip='%'>0</b> others
+<b>2</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
 </div>
@@ -167,7 +167,7 @@
 </div></div>
 <script>
 var timeline = {
-"my Host to check all request":9.78
+"my Host to check all request":5.096
 };
 </script>
 <div class="row">
@@ -234,10 +234,10 @@ warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 2,
+passGrandChild: 0,
 failGrandChild: 1,
 warningGrandChild: 0,
-skipGrandChild: 0,
+skipGrandChild: 2,
 infoGrandChild: 0,
 eventsCount: 5,
 };
@@ -272,7 +272,7 @@ eventsCount: 5,
           <div class="test-detail">
             <p class="name">my Host to check all request</p>
             <p class="text-sm">
-              <span>10:58:16 AM</span> / <span>00:00:09:780</span>
+              <span>12:46:45 PM</span> / <span>00:00:05:096</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -281,9 +281,9 @@ eventsCount: 5,
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-fail">my Host to check all request</h5>
-<span class='badge badge-success'>11.13.2025 10:58:16 AM</span>
-<span class='badge badge-danger'>11.13.2025 10:58:26 AM</span>
-<span class='badge badge-default'>00:00:09:780</span>
+<span class='badge badge-success'>11.14.2025 12:46:45 PM</span>
+<span class='badge badge-danger'>11.14.2025 12:46:50 PM</span>
+<span class='badge badge-default'>00:00:05:096</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -296,34 +296,44 @@ eventsCount: 5,
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log fail-bg mr-2">Fail</span>get a user body with get Request</div>
+        <div class="node" id="2"><span class="badge log fail-bg mr-2">Fail</span>Add a new user and verified creation with post Request</div>
       </div>
     </div>
         <div class="">
           <div class="card-body">
-              <div class="step pass-bg" title="StepDefinition.myhost.iSendTheGetRequestWith(java.lang.String,java.lang.String)">
-                <span>Given I send the get Request "Endurl" with "getuserid"</span>
-      <div>
+              <div class="step fail-bg" title="StepDefinition.myhost.iSendPOSTRequestToAddWithTheFollowingData(java.lang.String,java.lang.String)">
+                <span>Given I send  POST request to Add "Endurl" with the following data</span>
+      <div><div class='row'>
+ <div class='col-md-12'>
+  <textarea readonly class='code-block'>{
+"Firstname": "Dinesh",
+"Lastname": "Murugan",
+"Age": 28,
+"Emailid": "test@gmail.com"
+}</textarea>
+ </div>
+</div>
+
       </div>
-              </div>
-              <div class="step pass-bg" title="StepDefinition.CommonSteps.theStatusCodeShouldBeAndType(int,java.lang.String)">
-                <span>Then The Status code should be 200 and Type "get"</span>
       <div>
-      </div>
-              </div>
-              <div class="step fail-bg" title="StepDefinition.myhost.iCheckTheBodyValueWith(java.lang.String)">
-                <span>Then I check the body value with "kumar"</span>
-      <div>
-        <textarea disabled class="code-block">java.lang.AssertionError: First name mismatch expected [kumar] but found [schamvalite]
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
-	at org.testng.Assert.assertEquals(Assert.java:132)
-	at org.testng.Assert.assertEquals(Assert.java:656)
-	at StepDefinition.myhost.iCheckTheBodyValueWith(myhost.java:66)
-	at ✽.I check the body value with "kumar"(file:///C:/Users/DELL/intellije/Reest_Assured_framework/./src/test/resources/feature_files/myHost.feature:13)
+        <textarea disabled class="code-block">java.lang.RuntimeException: ❌ Response Schema Validation Error: ❌ Response schema mismatch
+	at utilities.Bass_utiles.validateResponseSchema(Bass_utiles.java:178)
+	at StepDefinition.myhost.iSendPOSTRequestToAddWithTheFollowingData(myhost.java:76)
+	at ✽.I send  POST request to Add "Endurl" with the following data(file:///C:/Users/DELL/intellije/Reest_Assured_framework/./src/test/resources/feature_files/myHost.feature:17)
 </textarea>
       
+      </div>
+              </div>
+              <div class="step skip-bg" title="StepDefinition.CommonSteps.theStatusCodeShouldBeAndType(int,java.lang.String)">
+                <span>Then The Status code should be 201 and Type "post"</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="StepDefinition.myhost.verifyTheCreatedUserDataShouldContainTheJsonbody(io.cucumber.datatable.DataTable)">
+                <span>And verify the created user data should contain the Jsonbody</span>
+      <div><table class='markup-table table '><tr><td>emailid</td><td>dineshmeij@gmail.com</td></tr><tr><td>firstname</td><td>dinesh</td></tr></table>
+      </div>
+      <div>Step skipped
       </div>
               </div>
           </div>
@@ -373,11 +383,11 @@ eventsCount: 5,
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>10:58:16 AM</td>
+<td>12:46:45 PM</td>
 <td>
-<a href="#" class="linked" test-id='1' id='2'>get a user body with get Request</a>
+<a href="#" class="linked" test-id='1' id='2'>Add a new user and verified creation with post Request</a>
 <div class="">
-<span class="badge badge-default">my Host to check all request.get a user body with get Request</span>
+<span class="badge badge-default">my Host to check all request.Add a new user and verified creation with post Request</span>
 </div>
 </td>
 </tr>
@@ -406,12 +416,12 @@ eventsCount: 5,
 <span class="meta">
 <span class='badge log badge-danger'>1</span>
 </span>
-<p class="name">java.lang.AssertionError</p>
+<p class="name">java.lang.RuntimeException</p>
 <p class="duration text-sm">1 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>java.lang.AssertionError</h4>
+<h4>java.lang.RuntimeException</h4>
 <span status="fail" class='badge log badge-danger'>1 failed</span>
 </div>
 <table class='table table-sm mt-4'>
@@ -425,11 +435,11 @@ eventsCount: 5,
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>10:58:24 AM</td>
+<td>12:46:47 PM</td>
 <td>
-<a href="#" class="linked" test-id='1' id='6'>Then I check the body value with "kumar"</a>
+<a href="#" class="linked" test-id='1' id='4'>Given I send POST request to Add "Endurl" with the following data</a>
 <div class="">
-<span class="badge badge-default">my Host to check all request.get a user body with get Request.Then I check the body value with "kumar"</span>
+<span class="badge badge-default">my Host to check all request.Add a new user and verified creation with post Request.Given I send POST request to Add "Endurl" with the following data</span>
 </div>
 </td>
 </tr>

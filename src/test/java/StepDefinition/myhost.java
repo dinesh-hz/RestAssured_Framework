@@ -2,7 +2,6 @@ package StepDefinition;
 
 import Payload.Addrespayload;
 import Payload.Userpayload;
-import builders.PayloadFactory;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -48,14 +47,13 @@ public class myhost {
     public void iSendTheGetRequestWith(String urlKey, String idKey) {
 
         String endpoint = manager.getProperty(urlKey);
+        String id = manager.getProperty(idKey);
 
-        String updatauserid = manager.getProperty(idKey);
-
-        Response request = bassUtiles.getRequest(endpoint + updatauserid);
+        Response request = bassUtiles.getRequest(endpoint + id);
 
         System.out.println("✅ current body :" + request.asPrettyString());
 
-        bassUtiles.validateSchema(request, "userSchema.json");
+        bassUtiles.validateResponseSchema(request, "ResponseSchema.json");
 
     }
 
@@ -67,34 +65,19 @@ public class myhost {
     }
 
     @Given("I send  POST request to Add {string} with the following data")
-    public void iSendPOSTRequestToAddWithTheFollowingData(String key, DataTable dataTable) {
+    public void iSendPOSTRequestToAddWithTheFollowingData(String key, String body) {
 
-        String endurl = manager.getProperty(key);
+        String Endpointurl = manager.getProperty(key);
 
-        Map<String, String> table = dataTable.asMap(String.class, String.class);
+        bassUtiles.validateRequestSchema(body, "postRequestSchema.json");
 
-        Userpayload userbody = PayloadFactory.createUserFromData(
-                table.get("firstname"),
-                table.get("lastname"),
-                table.get("emailid"),
-                Integer.parseInt(table.get("age")),
-                table.get("city"),
-                table.get("landmark"),
-                table.get("district"),
-                table.get("skilname"),
-                table.get("skillevel"),
-                Integer.parseInt(table.get("experienceYears"))
-        );
+        Response postRequest = bassUtiles.postRequest(Endpointurl, body);
 
+        bassUtiles.validateResponseSchema(postRequest, "ResponseSchema.json");
 
-        bassUtiles.postRequest(endurl, userbody);
+        String generatedId = bassUtiles.getValueFromJson(postRequest, "id");
 
-
-        Response postResponse = context.getPostResponse();
-
-        String generatedId = bassUtiles.getValueFromJson(postResponse, "id");
-
-        System.out.println("✅ created new user :" + postResponse.asString());
+        System.out.println("✅ created new user :" + postRequest.asString());
 
         //  System.out.println("id  :"+generatedId);
 
@@ -116,6 +99,7 @@ public class myhost {
 
         Assert.assertEquals(actualfirstname, table.get("firstname"), "firstname mismatch");
     }
+
 
     @Then("the Resopons stroe with userid")
     public void theResoponsStroeWithUserid() {

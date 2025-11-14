@@ -1,5 +1,11 @@
 package utilities;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.networknt.schema.JsonSchema;
+import com.networknt.schema.JsonSchemaFactory;
+import com.networknt.schema.SpecVersion;
+import com.networknt.schema.ValidationMessage;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
@@ -8,10 +14,12 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
+import java.util.Set;
 
 import static io.restassured.RestAssured.given;
-import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 public class Bass_utiles {
 
@@ -146,13 +154,56 @@ public class Bass_utiles {
         Assert.assertEquals(actualCode, expectedCode, "Status code mismatch for " + Type);
     }
 
-    public void validateSchema(Response response, String schemaFileName) {
-        response.then()
-                .assertThat()
-                .body(matchesJsonSchemaInClasspath("schemas/" + schemaFileName));
-        System.out.println("✅ JSON Schema validation passed for: " + schemaFileName);
+    public void validateResponseSchema(Response response, String schemaFileName) {
+        try {
+            String schemaData = Files.readString(Paths.get("src/test/resources/schemas/" + schemaFileName));
+
+            JsonSchemaFactory factory = JsonSchemaFactory.getInstance(SpecVersion.VersionFlag.V7);
+
+            JsonSchema schema = factory.getSchema(schemaData);
+
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode jsonNode = mapper.readTree(response.asString());
+
+            Set<ValidationMessage> errors = schema.validate(jsonNode);
+
+            if (!errors.isEmpty()) {
+                System.out.println("❌ RESPONSE Schema Validation Failed:");
+                errors.forEach(System.out::println);
+                throw new RuntimeException("❌ Response schema mismatch");
+            }
+
+            System.out.println("✔ Response Schema Valid");
+        } catch (Exception e) {
+            throw new RuntimeException("❌ Response Schema Validation Error: " + e.getMessage());
+        }
     }
 
+    public void validateRequestSchema(String jsonString, String schemaFileName) {
+
+        try {
+            String schemaData = Files.readString(Paths.get("src/test/resources/schemas/" + schemaFileName));
+
+            JsonSchemaFactory factory = JsonSchemaFactory.getInstance(SpecVersion.VersionFlag.V7);
+
+            JsonSchema schema = factory.getSchema(schemaData);
+
+            ObjectMapper mapper = new ObjectMapper();
+
+            JsonNode jsonNode = mapper.readTree(jsonString);
+
+            Set<ValidationMessage> errors = schema.validate(jsonNode);
+
+            if (!errors.isEmpty()) {
+                System.out.println("❌ Request Schema Validation Failed:");
+                errors.forEach(System.out::println);
+                throw new RuntimeException("❌ Request Schema error – check request schema");
+            }
+            System.out.println("✔ Request Schema Validated Successfully");
+        } catch (Exception e) {
+            throw new RuntimeException("❌ Request Schema Validation Exception Error: " + e.getMessage());
+        }
+    }
 
     public enum requestType {
         get,
@@ -161,4 +212,6 @@ public class Bass_utiles {
         delete,
         put
     }
+
+
 }

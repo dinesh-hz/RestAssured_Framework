@@ -6,25 +6,23 @@ Feature: my Host to check all request
     Then The Status code should be 200 and Type "get"
     And I verify allid should be here "id"
 
-  @try
+
   Scenario: get a user body with get Request
     Given I send the get Request "Endurl" with "getuserid"
     Then The Status code should be 200 and Type "get"
     Then I check the body value with "kumar"
 
-
+  @try
   Scenario: Add a new user and verified creation with post Request
     Given I send  POST request to Add "Endurl" with the following data
-      | firstname       | schamvalite          |
-      | lastname        | Murugan              |
-      | emailid         | dineshmeij@gmail.com |
-      | age             | 28                   |
-      | city            | Nagercoil            |
-      | landmark        | Bus Stop             |
-      | district        | Kanyakumari          |
-      | skilname        | Manual Testing       |
-      | skillevel       | Intermediate         |
-      | experienceYears | 4                    |
+  """
+{
+  "Firstname": "Dinesh",
+  "Lastname": "Murugan",
+  "Age": 28,
+  "Emailid": "test@gmail.com"
+}
+"""
     Then The Status code should be 201 and Type "post"
     And verify the created user data should contain the Jsonbody
       | emailid   | dineshmeij@gmail.com |

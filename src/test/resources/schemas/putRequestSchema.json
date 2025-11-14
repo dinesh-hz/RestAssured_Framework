@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/Emplyess",
+  "definitions": {
+    "Employees": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Firstname": {
+          "type": "string"
+        },
+        "Lastname": {
+          "type": "string"
+        },
+        "Age": {
+          "type": "integer"
+        },
+        "Emailid": {
+          "type": "string"
+        },
+        "Address": {
+          "$ref": "#/definitions/Address"
+        },
+        "Skills": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Skill"
+          }
+        }
+      },
+      "required": [
+        "Address",
+        "Age",
+        "Emailid",
+        "Firstname",
+        "Lastname",
+        "Skills"
+      ],
+      "title": "Employees"
+    },
+    "Address": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "City": {
+          "type": "string"
+        },
+        "District": {
+          "type": "string"
+        },
+        "LandMark": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "City",
+        "District",
+        "LandMark"
+      ],
+      "title": "Address"
+    },
+    "Skill": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Level": {
+          "type": "string"
+        },
+        "Years ofExperience": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "Level",
+        "Name",
+        "Years ofExperience"
+      ],
+      "title": "Skill"
+    }
+  },
+  "additionalProperties": false
+}

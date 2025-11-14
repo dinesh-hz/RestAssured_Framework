@@ -5,7 +5,7 @@
     "id": {
       "type": [
         "string",
-        "null"
+        "integer"
       ]
     },
     "Firstname": {
@@ -18,7 +18,8 @@
       "type": "integer"
     },
     "Emailid": {
-      "type": "string"
+      "type": "string",
+      "format": "email"
     },
     "Address": {
       "type": "object",
@@ -26,20 +27,20 @@
         "City": {
           "type": "string"
         },
-        "LandMark": {
+        "District": {
           "type": "string"
         },
-        "District": {
+        "LandMark": {
           "type": "string"
         }
       },
       "required": [
         "City",
-        "LandMark",
-        "District"
+        "District",
+        "LandMark"
       ]
     },
-    "Skils": {
+    "Skills": {
       "type": "array",
       "items": {
         "type": "object",
@@ -63,11 +64,13 @@
     }
   },
   "required": [
+    "id",
     "Firstname",
     "Lastname",
     "Age",
     "Emailid",
     "Address",
     "Skills"
-  ]
+  ],
+  "additionalProperties": false
 }
